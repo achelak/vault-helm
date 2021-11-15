@@ -496,6 +496,31 @@ server:
     # and is only valid for LoadBalancer and NodePort service types.
     # The default value is Cluster.
     # ref: https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy
+    
+    # Internal LB
+    loadBalancerIP: ""
+    loadBalancerSourceRanges:
+    - "127.0.0.1/32"  # Localhost
+    - "10.0.0.0/8"  # All internals
+  # - "10.4.0.0/14"  # Test cluster
+  # - "10.56.0.0/14"  # Apim cluster
+  # - "10.28.0.0/14"  # AWS cluster
+  # - "10.40.0.0/14"  # CDN cluster
+  # - "10.8.0.0/14"  # Front cluster
+  # - "10.156.0.0/20"  # Autodoc project
+  # - "10.127.0.0/16"  # Boards/Partners cluster
+  # - "10.12.0.0/16"  # Boards/Partners project
+  # - "10.124.0.0/16"  # M-13 cluster
+  # - "10.16.0.0/16"  # M-13 project
+  # - "10.36.0.0/14"  # Bison cluster
+  # - "10.14.0.0/16"  # Bison project
+  # - "10.122.0.0/16"  # STRX cluster
+  # - "10.17.0.0/16"  # STRX project
+  # - "10.24.0.0/14"  # KMTX-master cluster
+  # - "10.3.0.0/16"  # KMTX project
+  # - "10.56.0.0/14"  # Club cluster
+  # - "10.156.0.0/20"  # Club project
+
     externalTrafficPolicy: Cluster
 
     # If type is set to "NodePort", a specific nodePort value can be configured,
