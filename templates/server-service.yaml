@@ -21,15 +21,13 @@ spec:
   {{- if .Values.server.service.clusterIP }}
   clusterIP: {{ .Values.server.service.clusterIP }}
   {{- end }}
-
+  {{- include "service.externalTrafficPolicy" .Values.server.service }}
   {{- if eq .Values.server.service.type "LoadBalancer" }}
   loadBalancerIP: {{ .Values.server.service.loadBalancerIP }}
   {{- with .Values.server.service.loadBalancerSourceRanges }}
   loadBalancerSourceRanges:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-
-  {{- include "service.externalTrafficPolicy" .Values.server.service }}
   # We want the servers to become available even if they're not ready
   # since this DNS is also used for join operations.
   publishNotReadyAddresses: true
